@@ -5,6 +5,7 @@ let features = [
     require('./default-function-params'),
     require('./arrow-functions'),
     require('./rest-params'),
+    require('./spread-operator'),
 ]
 
 for (feature of features) {

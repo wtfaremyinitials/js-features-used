@@ -84,3 +84,16 @@ test('rest parameters', t => {
         'rest parameters feature wrongly detected'
     )
 })
+
+test('spread operator', t => {
+    var feat = require('./features/spread-operator').feature
+
+    t.true(
+        featuresUsed('foo(...bar)').includes(feat),
+        'spread operator feature not detected'
+    )
+    t.false(
+        featuresUsed('foo.apply(this, bar)').includes(feat),
+        'spread operator feature wrongly detected'
+    )
+})
