@@ -19,6 +19,7 @@ let features = [
     require('./const-bindings'),
     require('./class'),
     require('./super'),
+    require('./generators'),
 ]
 
 for (feature of features) {

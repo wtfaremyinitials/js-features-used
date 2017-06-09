@@ -516,3 +516,24 @@ test('super', t => {
         'super feature not detected'
     )
 })
+
+test('generators', t => {
+    var feat = require('./features/generators').feature
+
+    t.true(
+        featuresUsed('function * foo() { yield 1 }').includes(feat),
+        'generator feature not detected'
+    )
+    t.true(
+        featuresUsed('var o = { * foo() { yield 1} }').includes(feat),
+        'generator feature not detected'
+    )
+    t.true(
+        featuresUsed('class A { * foo() { yield 1 } }').includes(feat),
+        'generator feature not detected'
+    )
+    t.false(
+        featuresUsed('function foo() { return 1 }').includes(feat),
+        'generator feature wrongly detected'
+    )
+})
