@@ -8,6 +8,7 @@ let features = [
     require('./spread-operator'),
     require('./computed-properties'),
     require('./literal-shorthand'),
+    require('./computed-accessors'),
 ]
 
 for (feature of features) {

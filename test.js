@@ -167,3 +167,31 @@ test('object literal shorthand', t => {
         'object literal shorthand feature wrongly detected'
     )
 })
+
+test('computed accessors', t => {
+    var feat = require('./features/computed-accessors').feature
+
+    t.true(
+        featuresUsed(`
+            var x = "y";
+            var z = {
+                get [x] () { return 1 },
+                set [x] (value) {  },
+            }
+        `).includes(feat),
+        'computed accessors feature not detected'
+    )
+    t.false(
+        featuresUsed(`
+            var z = {
+                get y () { return 1 },
+                set y (value) {  },
+            }
+        `).includes(feat),
+        'computed accessors feature wrongly detected'
+    )
+    t.false(
+        featuresUsed('var x = "foo"; var y = { [x]() { return 1 } }').includes(feat),
+        'computed accessors feature wrongly detected'
+    )
+})
