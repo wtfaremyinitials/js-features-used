@@ -492,3 +492,16 @@ test('let bindings', t => {
         'let bindings feature wrongly detected'
     )
 })
+
+test('class', t => {
+    var feat = require('./features/class').feature
+
+    t.true(
+        featuresUsed('class Foo {}').includes(feat),
+        'class feature not detected'
+    )
+    t.false(
+        featuresUsed('function Foo() {}').includes(feat),
+        'class feature wrongly detected'
+    )
+})

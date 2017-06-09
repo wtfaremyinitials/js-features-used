@@ -17,6 +17,7 @@ let features = [
     require('./new-target'),
     require('./let-bindings'),
     require('./const-bindings'),
+    require('./class'),
 ]
 
 for (feature of features) {
