@@ -11,6 +11,7 @@ let features = [
     require('./computed-accessors'),
     require('./for-of'),
     require('./octal-binary-literals'),
+    require('./template-literals'),
 ]
 
 for (feature of features) {

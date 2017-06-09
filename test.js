@@ -271,3 +271,18 @@ test('octal and binary literals', t => {
         'binary literal feature wrongly detected'
     )
 })
+
+test('template literals', t => {
+    var feat = require('./features/template-literals').feature
+
+    t.true(
+        featuresUsed('var x = "world"; var y = `Hello, ${x}!`').includes(feat),
+        'template literals feature not detected'
+    )
+    t.false(
+        featuresUsed('var x = "world"; var y = "Hello, " + x + "!"').includes(
+            feat
+        ),
+        'template literals feature wrongly detected'
+    )
+})
