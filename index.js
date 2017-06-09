@@ -12,8 +12,6 @@ function featuresUsed(code) {
     let features = []
     let ast = parse(code)
 
-    console.log(require('util').inspect(ast.program, { depth: null }))
-
     traverse(ast, {
         enter: path => {
             let nodeVisitors = visitors[path.node.type] || []
@@ -23,6 +21,7 @@ function featuresUsed(code) {
             features = features.concat(visitorResults)
         },
     })
+
     return features
 }
 
