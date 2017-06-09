@@ -20,6 +20,7 @@ let features = [
     require('./class'),
     require('./super'),
     require('./generators'),
+    require('./typed-array'),
 ]
 
 for (feature of features) {

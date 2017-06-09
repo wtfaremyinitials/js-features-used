@@ -545,3 +545,48 @@ test('generators', t => {
         'generator feature wrongly detected'
     )
 })
+
+test('typed array', t => {
+    var feat = require('./features/typed-array').feature
+
+    t.true(
+        featuresUsed('var buffer = new ArrayBuffer(64)').includes(feat),
+        'typed array feature not detected'
+    )
+    t.true(
+        featuresUsed('var view = new Int8Array(buffer)').includes(feat),
+        'typed array feature not detected'
+    )
+    t.true(
+        featuresUsed('var view = new Uint8Array(buffer)').includes(feat),
+        'typed array feature not detected'
+    )
+    t.true(
+        featuresUsed('var view = new Uint8ClampedArray(buffer)').includes(feat),
+        'typed array feature not detected'
+    )
+    t.true(
+        featuresUsed('var view = new Int16Array(buffer)').includes(feat),
+        'typed array feature not detected'
+    )
+    t.true(
+        featuresUsed('var view = new Uint16Array(buffer)').includes(feat),
+        'typed array feature not detected'
+    )
+    t.true(
+        featuresUsed('var view = new Int32Array(buffer)').includes(feat),
+        'typed array feature not detected'
+    )
+    t.true(
+        featuresUsed('var view = new Uint32Array(buffer)').includes(feat),
+        'typed array feature not detected'
+    )
+    t.true(
+        featuresUsed('var view = new Float32Array(buffer)').includes(feat),
+        'typed array feature not detected'
+    )
+    t.true(
+        featuresUsed('var view = new Float64Array(buffer)').includes(feat),
+        'typed array feature not detected'
+    )
+})
