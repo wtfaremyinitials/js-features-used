@@ -629,3 +629,22 @@ test('proxies', t => {
         'proxy feature wrongly detected'
     )
 })
+
+test('reflect', t => {
+    var feat = require('./features/reflect').feature
+
+    t.true(
+        featuresUsed('Reflect.get({ foo: "bar" }, "foo")').includes(feat),
+        'reflect feature not detected'
+    )
+    t.true(
+        featuresUsed('var foo = {}; Reflect.set(foo, "bar", "baz")').includes(
+            feat
+        ),
+        'reflect feature not detected'
+    )
+    t.false(
+        featuresUsed('({ foo: "bar"}).foo').includes(feat),
+        'reflect feature wrongly detected'
+    )
+})

@@ -24,6 +24,7 @@ let features = [
     require('./map-and-set'),
     require('./weak-map-and-set'),
     require('./proxies'),
+    require('./reflect'),
 ]
 
 for (feature of features) {
