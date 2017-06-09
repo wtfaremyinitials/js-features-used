@@ -377,3 +377,77 @@ test('regex y and u flags (RegExp function)', t => {
         'regex y flag feature feature wrongly detected'
     )
 })
+
+test('destructuring declarations', t => {
+    var feat = require('./features/destructuring').feature
+
+    // destructure arrays
+    t.true(
+        featuresUsed('var [a, b, c] = [1, 2, 3]').includes(feat),
+        'destructuring declarations feature not detected'
+    )
+    t.false(
+        featuresUsed('var arr = [1, 2, 3]').includes(feat),
+        'destructuring declarations feature wrongly detected'
+    )
+
+    // destructure objects
+    t.true(
+        featuresUsed('var { a, b, c } = { a: 1, b: 2, c: 3 }').includes(feat),
+        'destructuring declarations feature not detected'
+    )
+    t.false(
+        featuresUsed('var obj = { a: 1, b: 2, c: 3 }').includes(feat),
+        'destructuring declarations feature wrongly detected'
+    )
+})
+
+test('destructuring assignments', t => {
+    var feat = require('./features/destructuring').feature
+
+    // destructure arrays
+    t.true(
+        featuresUsed('var a, b, c; [a, b, c] = [1, 2, 3]').includes(feat),
+        'destructuring assignments feature not detected'
+    )
+    t.false(
+        featuresUsed('var arr = [1, 2, 3]').includes(feat),
+        'destructuring assignments feature wrongly detected'
+    )
+
+    // destructure objects
+    t.true(
+        featuresUsed(
+            'var a, b, c; ({ a, b, c } = { a: 1, b: 2, c: 3 })'
+        ).includes(feat),
+        'destructuring assignments feature not detected'
+    )
+    t.false(
+        featuresUsed('var obj = { a: 1, b: 2, c: 3 }').includes(feat),
+        'destructuring assignments feature wrongly detected'
+    )
+})
+
+test('destructuring parameters', t => {
+    var feat = require('./features/destructuring').feature
+
+    // destructure arrays
+    t.true(
+        featuresUsed('function foo([a, b]) { return a + b }').includes(feat),
+        'destructuring parameters feature not detected'
+    )
+    t.false(
+        featuresUsed('function foo(a, b) { return a + b }').includes(feat),
+        'destructuring parameters feature wrongly detected'
+    )
+
+    // destructure objects
+    t.true(
+        featuresUsed('function foo({ a, b }) { return a + b }').includes(feat),
+        'destructuring paramters feature not detected'
+    )
+    t.false(
+        featuresUsed('function foo(a, b) { return a + b }').includes(feat),
+        'destructuring parameters feature wrongly detected'
+    )
+})
