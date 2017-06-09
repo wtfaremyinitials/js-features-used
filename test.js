@@ -648,3 +648,16 @@ test('reflect', t => {
         'reflect feature wrongly detected'
     )
 })
+
+test('symbol', t => {
+    var feat = require('./features/symbol').feature
+
+    t.true(
+        featuresUsed('var s = Symbol("foo")').includes(feat),
+        'symbol feature not detected'
+    )
+    t.false(
+        featuresUsed('var s = "foo"').includes(feat),
+        'symbol feature wrongly detected'
+    )
+})
