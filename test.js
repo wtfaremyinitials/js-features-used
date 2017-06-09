@@ -702,3 +702,29 @@ test('well-known symbols', t => {
         'well-known symbols feature wrongly detected' // Symbol.unscopables is as old as Symbol
     )
 })
+
+test('Symbol.hasInstance', t => {
+    var feat = require('./features/symbol-has-instance').feature
+
+    t.true(
+        featuresUsed('Symbol.hasInstance').includes(feat),
+        'Symbol.hasInstance feature not detected'
+    )
+    t.false(
+        featuresUsed('Symbol.iterator').includes(feat),
+        'Symbol.hasInstance feature wrongly detected' // Symbol.iteraror is as old as Symbol
+    )
+})
+
+test('Symbol.species', t => {
+    var feat = require('./features/symbol-species').feature
+
+    t.true(
+        featuresUsed('Symbol.species').includes(feat),
+        'Symbol.species feature not detected'
+    )
+    t.false(
+        featuresUsed('Symbol.iterator').includes(feat),
+        'Symobol.species feature wrongly detected' // Symbol.iteraror is as old as Symbol
+    )
+})

@@ -27,6 +27,8 @@ let features = [
     require('./reflect'),
     require('./symbol'),
     require('./well-known-symbols'),
+    require('./symbol-has-instance'),
+    require('./symbol-species'),
 ]
 
 for (feature of features) {
