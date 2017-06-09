@@ -11,5 +11,10 @@ module.exports = {
                 return feature
             }
         },
+        ObjectMethod: node => {
+            if (node.computed) {
+                return feature
+            }
+        },
     },
 }
