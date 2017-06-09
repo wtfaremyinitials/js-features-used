@@ -16,5 +16,15 @@ module.exports = {
                 return feature
             }
         },
+        ObjectMethod: node => {
+            if (node.async) {
+                return feature
+            }
+        },
+        ClassMethod: node => {
+            if (node.async) {
+                return feature
+            }
+        },
     },
 }

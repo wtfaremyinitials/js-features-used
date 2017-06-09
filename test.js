@@ -12,6 +12,14 @@ test('async functions', t => {
         featuresUsed('async () => {}').includes(feat),
         'async function feature not detected'
     )
+    t.true(
+        featuresUsed('var o = { async foo() { } }').includes(feat),
+        'async feature not detected'
+    )
+    t.true(
+        featuresUsed('class A { async foo() { } }').includes(feat),
+        'async feature not detected'
+    )
     t.false(
         featuresUsed('function async() {}').includes(feat),
         'async function feature wrongly detected'
