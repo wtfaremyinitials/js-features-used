@@ -153,13 +153,17 @@ test('object literal shorthand', t => {
         'object literal shorthand feature not detected'
     )
     t.false(
-        featuresUsed('var y = { "foo bar": () => { return 1 } }').includes(feat),
+        featuresUsed('var y = { "foo bar": () => { return 1 } }').includes(
+            feat
+        ),
         'object literal shorthand feature wrongly detected'
     )
 
     // computed shorthand methods
     t.true(
-        featuresUsed('var x = "foo"; var y = { [x]() { return 1 } }').includes(feat),
+        featuresUsed('var x = "foo"; var y = { [x]() { return 1 } }').includes(
+            feat
+        ),
         'object literal shorthand feature not detected'
     )
     t.false(
@@ -172,26 +176,32 @@ test('computed accessors', t => {
     var feat = require('./features/computed-accessors').feature
 
     t.true(
-        featuresUsed(`
+        featuresUsed(
+            `
             var x = "y";
             var z = {
                 get [x] () { return 1 },
                 set [x] (value) {  },
             }
-        `).includes(feat),
+        `
+        ).includes(feat),
         'computed accessors feature not detected'
     )
     t.false(
-        featuresUsed(`
+        featuresUsed(
+            `
             var z = {
                 get y () { return 1 },
                 set y (value) {  },
             }
-        `).includes(feat),
+        `
+        ).includes(feat),
         'computed accessors feature wrongly detected'
     )
     t.false(
-        featuresUsed('var x = "foo"; var y = { [x]() { return 1 } }').includes(feat),
+        featuresUsed('var x = "foo"; var y = { [x]() { return 1 } }').includes(
+            feat
+        ),
         'computed accessors feature wrongly detected'
     )
 })
@@ -200,30 +210,36 @@ test('for..of loops', t => {
     var feat = require('./features/for-of').feature
 
     t.true(
-        featuresUsed(`
+        featuresUsed(
+            `
             var x = [1, 2, 3]
             for (n of x) {
                 console.log(x)
             }
-        `).includes(feat),
+        `
+        ).includes(feat),
         'for..of loops feature not detected'
     )
     t.false(
-        featuresUsed(`
+        featuresUsed(
+            `
             var x = [1, 2, 3]
             for (n in x) {
                 console.log(x)
             }
-        `).includes(feat),
+        `
+        ).includes(feat),
         'for..of loops feature wrongly detected'
     )
     t.false(
-        featuresUsed(`
+        featuresUsed(
+            `
             var x = [1, 2, 3]
             for (var i=0; i<x.length; i++) {
                 console.log(x)
             }
-        `).includes(feat),
+        `
+        ).includes(feat),
         'for..of loops feature wrongly detected'
     )
 })
