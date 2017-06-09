@@ -15,6 +15,8 @@ let features = [
     require('./regex-y-u-flags'),
     require('./destructuring'),
     require('./new-target'),
+    require('./let-bindings'),
+    require('./const-bindings'),
 ]
 
 for (feature of features) {

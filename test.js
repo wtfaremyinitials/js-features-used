@@ -466,3 +466,29 @@ test('new.target', t => {
         'new.target feature wrongly detected'
     )
 })
+
+test('const bindings', t => {
+    var feat = require('./features/const-bindings').feature
+
+    t.true(
+        featuresUsed('const x = 1').includes(feat),
+        'const bindings feature not detected'
+    )
+    t.false(
+        featuresUsed('var x = 1').includes(feat),
+        'const bindings feature wrongly detected'
+    )
+})
+
+test('let bindings', t => {
+    var feat = require('./features/let-bindings').feature
+
+    t.true(
+        featuresUsed('let x = 1').includes(feat),
+        'let bindings feature not detected'
+    )
+    t.false(
+        featuresUsed('var x = 1').includes(feat),
+        'let bindings feature wrongly detected'
+    )
+})
