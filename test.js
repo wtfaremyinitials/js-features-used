@@ -195,3 +195,35 @@ test('computed accessors', t => {
         'computed accessors feature wrongly detected'
     )
 })
+
+test('for..of loops', t => {
+    var feat = require('./features/for-of').feature
+
+    t.true(
+        featuresUsed(`
+            var x = [1, 2, 3]
+            for (n of x) {
+                console.log(x)
+            }
+        `).includes(feat),
+        'for..of loops feature not detected'
+    )
+    t.false(
+        featuresUsed(`
+            var x = [1, 2, 3]
+            for (n in x) {
+                console.log(x)
+            }
+        `).includes(feat),
+        'for..of loops feature wrongly detected'
+    )
+    t.false(
+        featuresUsed(`
+            var x = [1, 2, 3]
+            for (var i=0; i<x.length; i++) {
+                console.log(x)
+            }
+        `).includes(feat),
+        'for..of loops feature wrongly detected'
+    )
+})

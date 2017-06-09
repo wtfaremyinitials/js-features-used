@@ -9,6 +9,7 @@ let features = [
     require('./computed-properties'),
     require('./literal-shorthand'),
     require('./computed-accessors'),
+    require('./for-of')
 ]
 
 for (feature of features) {
