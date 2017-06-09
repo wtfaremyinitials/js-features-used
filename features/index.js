@@ -10,6 +10,7 @@ let features = [
     require('./literal-shorthand'),
     require('./computed-accessors'),
     require('./for-of'),
+    require('./octal-binary-literals'),
 ]
 
 for (feature of features) {

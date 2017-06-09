@@ -243,3 +243,31 @@ test('for..of loops', t => {
         'for..of loops feature wrongly detected'
     )
 })
+
+test('octal and binary literals', t => {
+    var feat = require('./features/octal-binary-literals').feature
+
+    // octal literals
+    t.true(
+        featuresUsed('var x = 0o10').includes(feat),
+        'octal literal feature not detected'
+    )
+    t.false(
+        featuresUsed('var x = 8').includes(feat),
+        'octal literal feature wrongly detected'
+    )
+
+    // binary literals
+    t.true(
+        featuresUsed('var x = 0b10').includes(feat),
+        'binary literal feature not detected'
+    )
+    t.false(
+        featuresUsed('var x = 2').includes(feat),
+        'binary literal feature wrongly detected'
+    )
+    t.false(
+        featuresUsed('var x = 0x2').includes(feat),
+        'binary literal feature wrongly detected'
+    )
+})
