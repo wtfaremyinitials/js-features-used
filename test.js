@@ -451,3 +451,18 @@ test('destructuring parameters', t => {
         'destructuring parameters feature wrongly detected'
     )
 })
+
+test('new.target', t => {
+    var feat = require('./features/new-target').feature
+
+    t.true(
+        featuresUsed('new (function F() { new.target === F})()').includes(feat),
+        'new.targert feature not detected'
+    )
+    t.false(
+        featuresUsed(
+            'var x = { "new": { "target": "foo" } }; x.new.target = "bar"'
+        ).includes(feat),
+        'new.target feature wrongly detected'
+    )
+})

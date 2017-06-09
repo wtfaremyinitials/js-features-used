@@ -14,6 +14,7 @@ let features = [
     require('./template-literals'),
     require('./regex-y-u-flags'),
     require('./destructuring'),
+    require('./new-target'),
 ]
 
 for (feature of features) {
