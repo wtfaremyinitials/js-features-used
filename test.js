@@ -123,3 +123,47 @@ test('computed properties', t => {
         'computed properties feature wrongly detected'
     )
 })
+
+test('object literal shorthand', t => {
+    var feat = require('./features/literal-shorthand').feature
+
+    // shorthand properties
+    t.true(
+        featuresUsed('var x = 1; var y = { x }').includes(feat),
+        'object literal shorthand feature not detected'
+    )
+    t.false(
+        featuresUsed('var x = 1; var y = { x: x }').includes(feat),
+        'object literal shorthand feature wrongly detected'
+    )
+
+    // shorthand methods
+    t.true(
+        featuresUsed('var y = { foo() { return 1 } }').includes(feat),
+        'object literal shorthand feature not detected'
+    )
+    t.false(
+        featuresUsed('var y = { foo: () => { return 1 } }').includes(feat),
+        'object literal shorthand feature wrongly detected'
+    )
+
+    // string-keyed shorthand methods
+    t.true(
+        featuresUsed('var y = { "foo bar"() { return 1 } }').includes(feat),
+        'object literal shorthand feature not detected'
+    )
+    t.false(
+        featuresUsed('var y = { "foo bar": () => { return 1 } }').includes(feat),
+        'object literal shorthand feature wrongly detected'
+    )
+
+    // computed shorthand methods
+    t.true(
+        featuresUsed('var x = "foo"; var y = { [x]() { return 1 } }').includes(feat),
+        'object literal shorthand feature not detected'
+    )
+    t.false(
+        featuresUsed('var y = { foo: () => { return 1 } }').includes(feat),
+        'object literal shorthand feature wrongly detected'
+    )
+})

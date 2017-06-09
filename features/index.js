@@ -7,6 +7,7 @@ let features = [
     require('./rest-params'),
     require('./spread-operator'),
     require('./computed-properties'),
+    require('./literal-shorthand'),
 ]
 
 for (feature of features) {
