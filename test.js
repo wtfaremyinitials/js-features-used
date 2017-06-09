@@ -59,3 +59,28 @@ test('arrow functions', t => {
         'arrow function feature wrongly detected'
     )
 })
+
+test('rest parameters', t => {
+    var feat = require('./features/rest-params').feature
+
+    t.true(
+        featuresUsed('function foo(...args) {}').includes(feat),
+        'rest parameters feature not detected'
+    )
+    t.true(
+        featuresUsed('function foo(a, b, c, ...args) {}').includes(feat),
+        'rest parameters feature not detected'
+    )
+    t.true(
+        featuresUsed('(...args) => {}').includes(feat),
+        'rest parameters feature not detected'
+    )
+    t.false(
+        featuresUsed('function foo(args) {}').includes(feat),
+        'rest parameters feature wrongly detected'
+    )
+    t.false(
+        featuresUsed('(args) => {}').includes(feat),
+        'rest parameters feature wrongly detected'
+    )
+})

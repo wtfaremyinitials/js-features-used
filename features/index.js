@@ -4,6 +4,7 @@ let features = [
     require('./async-functions'),
     require('./default-function-params'),
     require('./arrow-functions'),
+    require('./rest-params'),
 ]
 
 for (feature of features) {
