@@ -12,6 +12,7 @@ let features = [
     require('./for-of'),
     require('./octal-binary-literals'),
     require('./template-literals'),
+    require('./regex-y-u-flags'),
 ]
 
 for (feature of features) {

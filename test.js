@@ -286,3 +286,94 @@ test('template literals', t => {
         'template literals feature wrongly detected'
     )
 })
+
+test('regex y and u flags (RegExp literal)', t => {
+    var feat = require('./features/regex-y-u-flags').feature
+
+    t.true(
+        featuresUsed('var r = /w/y').includes(feat),
+        'regex y flag feature not detected'
+    )
+    t.true(
+        featuresUsed('var r = /w/yi').includes(feat),
+        'regex y flag feature not detected'
+    )
+    t.true(
+        featuresUsed('var r = /w/u').includes(feat),
+        'regex u flag feature not detected'
+    )
+    t.true(
+        featuresUsed('var r = /w/ui').includes(feat),
+        'regex u flag feature not detected'
+    )
+    t.false(
+        featuresUsed('var r = /w/g').includes(feat),
+        'regex y flag feature feature wrongly detected'
+    )
+})
+
+test('regex y and u flags (RegExp constructor)', t => {
+    var feat = require('./features/regex-y-u-flags').feature
+
+    t.true(
+        featuresUsed('var r = new RegExp("\\w", "y")').includes(feat),
+        'regex y flag feature not detected'
+    )
+    t.true(
+        featuresUsed('var r = new RegExp("\\w", "yi")').includes(feat),
+        'regex y flag feature not detected'
+    )
+    t.true(
+        featuresUsed('var r = new RegExp("\\w", "u")').includes(feat),
+        'regex u flag feature not detected'
+    )
+    t.true(
+        featuresUsed('var r = new RegExp("\\w", "ui")').includes(feat),
+        'regex u flag feature not detected'
+    )
+    t.false(
+        featuresUsed('var r = new RegExp("\\w", "g")').includes(feat),
+        'regex y flag feature feature wrongly detected'
+    )
+    t.false(
+        featuresUsed('var r = new RegExp("\\w")').includes(feat),
+        'regex y flag feature feature wrongly detected'
+    )
+    t.false(
+        featuresUsed('var r = new RegExp("\\w", x)').includes(feat),
+        'regex y flag feature feature wrongly detected'
+    )
+})
+
+test('regex y and u flags (RegExp function)', t => {
+    var feat = require('./features/regex-y-u-flags').feature
+
+    t.true(
+        featuresUsed('var r = RegExp("\\w", "y")').includes(feat),
+        'regex y flag feature not detected'
+    )
+    t.true(
+        featuresUsed('var r = RegExp("\\w", "yi")').includes(feat),
+        'regex y flag feature not detected'
+    )
+    t.true(
+        featuresUsed('var r = RegExp("\\w", "u")').includes(feat),
+        'regex u flag feature not detected'
+    )
+    t.true(
+        featuresUsed('var r = RegExp("\\w", "ui")').includes(feat),
+        'regex u flag feature not detected'
+    )
+    t.false(
+        featuresUsed('var r = RegExp("\\w", "g")').includes(feat),
+        'regex y flag feature feature wrongly detected'
+    )
+    t.false(
+        featuresUsed('var r = new RegExp("\\w")').includes(feat),
+        'regex y flag feature feature wrongly detected'
+    )
+    t.false(
+        featuresUsed('var r = new RegExp("\\w", x)').includes(feat),
+        'regex y flag feature feature wrongly detected'
+    )
+})
