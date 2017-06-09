@@ -616,3 +616,16 @@ test('weak map and set', t => {
         'weak set feature not detected'
     )
 })
+
+test('proxies', t => {
+    var feat = require('./features/proxies').feature
+
+    t.true(
+        featuresUsed('var p = new Proxy()').includes(feat),
+        'proxy feature not detected'
+    )
+    t.false(
+        featuresUsed('var p = {}').includes(feat),
+        'proxy feature wrongly detected'
+    )
+})

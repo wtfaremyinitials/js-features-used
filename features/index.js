@@ -23,6 +23,7 @@ let features = [
     require('./typed-array'),
     require('./map-and-set'),
     require('./weak-map-and-set'),
+    require('./proxies'),
 ]
 
 for (feature of features) {
