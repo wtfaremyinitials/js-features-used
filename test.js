@@ -663,7 +663,7 @@ test('symbol', t => {
 })
 
 test('well-known symbols', t => {
-    var feat = require('./features/well-known-symbols').feature
+    var feat = require('./features/symbols-well-known').feature
 
     t.true(
         featuresUsed('Symbol.isConcatSpreadable').includes(feat),

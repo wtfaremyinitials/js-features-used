@@ -26,7 +26,7 @@ let features = [
     require('./proxies'),
     require('./reflect'),
     require('./symbol'),
-    require('./well-known-symbols'),
+    require('./symbols-well-known'),
     require('./symbol-has-instance'),
     require('./symbol-species'),
 ]
