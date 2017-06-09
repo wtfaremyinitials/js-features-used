@@ -1,6 +1,6 @@
 const feature = {
     name: 'computed properties',
-    requiredVersion: { major: 7, minor: 10, patch: 0 },
+    requiredVersion: { major: 4, minor: 8, patch: 3 },
 }
 
 module.exports = {
