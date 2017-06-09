@@ -6,6 +6,7 @@ let features = [
     require('./arrow-functions'),
     require('./rest-params'),
     require('./spread-operator'),
+    require('./computed-properties'),
 ]
 
 for (feature of features) {

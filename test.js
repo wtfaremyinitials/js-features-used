@@ -97,3 +97,16 @@ test('spread operator', t => {
         'spread operator feature wrongly detected'
     )
 })
+
+test('computed properties', t => {
+    var feat = require('./features/computed-properties').feature
+
+    t.true(
+        featuresUsed('var x = "y"; var z = { [x]: 1 }').includes(feat),
+        'computed properties feature not detected'
+    )
+    t.false(
+        featuresUsed('var x = "y"; var z = { x: 1 }').includes(feat),
+        'computed properties feature wrongly detected'
+    )
+})
