@@ -590,3 +590,29 @@ test('typed array', t => {
         'typed array feature not detected'
     )
 })
+
+test('map and set', t => {
+    var feat = require('./features/map-and-set').feature
+
+    t.true(
+        featuresUsed('var x = new Map()').includes(feat),
+        'map feature not detected'
+    )
+    t.true(
+        featuresUsed('var x = new Set()').includes(feat),
+        'set feature not detected'
+    )
+})
+
+test('weak map and set', t => {
+    var feat = require('./features/weak-map-and-set').feature
+
+    t.true(
+        featuresUsed('var x = new WeakMap()').includes(feat),
+        'weak map feature not detected'
+    )
+    t.true(
+        featuresUsed('var x = new WeakSet()').includes(feat),
+        'weak set feature not detected'
+    )
+})

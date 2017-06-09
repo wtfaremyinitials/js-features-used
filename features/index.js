@@ -21,6 +21,8 @@ let features = [
     require('./super'),
     require('./generators'),
     require('./typed-array'),
+    require('./map-and-set'),
+    require('./weak-map-and-set'),
 ]
 
 for (feature of features) {
