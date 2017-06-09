@@ -505,3 +505,14 @@ test('class', t => {
         'class feature wrongly detected'
     )
 })
+
+test('super', t => {
+    var feat = require('./features/super').feature
+
+    t.true(
+        featuresUsed(
+            'class A {} class B extends A { foo() { super.foo() } }'
+        ).includes(feat),
+        'super feature not detected'
+    )
+})
