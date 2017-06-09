@@ -26,6 +26,7 @@ let features = [
     require('./proxies'),
     require('./reflect'),
     require('./symbol'),
+    require('./well-known-symbols'),
 ]
 
 for (feature of features) {

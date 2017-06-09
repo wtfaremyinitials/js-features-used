@@ -661,3 +661,44 @@ test('symbol', t => {
         'symbol feature wrongly detected'
     )
 })
+
+test('well-known symbols', t => {
+    var feat = require('./features/well-known-symbols').feature
+
+    t.true(
+        featuresUsed('Symbol.isConcatSpreadable').includes(feat),
+        'well-known symbols feature not detected'
+    )
+    t.true(
+        featuresUsed('Symbol.replace').includes(feat),
+        'well-known symbols feature not detected'
+    )
+    t.true(
+        featuresUsed('Symbol.search').includes(feat),
+        'well-known symbols feature not detected'
+    )
+    t.true(
+        featuresUsed('Symbol.split').includes(feat),
+        'well-known symbols feature not detected'
+    )
+    t.true(
+        featuresUsed('Symbol.match').includes(feat),
+        'well-known symbols feature not detected'
+    )
+    t.true(
+        featuresUsed('Symbol.toPrimitive').includes(feat),
+        'well-known symbols feature not detected'
+    )
+    t.true(
+        featuresUsed('Symbol.toStringTag').includes(feat),
+        'well-known symbols feature not detected'
+    )
+    t.false(
+        featuresUsed('Symbol.iterator').includes(feat),
+        'well-known symbols feature wrongly detected' // Symbol.iteraror is as old as Symbol
+    )
+    t.false(
+        featuresUsed('Symbol.unscopables').includes(feat),
+        'well-known symbols feature wrongly detected' // Symbol.unscopables is as old as Symbol
+    )
+})
