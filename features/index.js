@@ -1,35 +1,9 @@
 let allVisitors = {}
 
-let features = [
-    require('./async-functions'),
-    require('./default-function-params'),
-    require('./arrow-functions'),
-    require('./rest-params'),
-    require('./spread-operator'),
-    require('./computed-properties'),
-    require('./literal-shorthand'),
-    require('./computed-accessors'),
-    require('./for-of'),
-    require('./octal-binary-literals'),
-    require('./template-literals'),
-    require('./regex-y-u-flags'),
-    require('./destructuring'),
-    require('./new-target'),
-    require('./let-bindings'),
-    require('./const-bindings'),
-    require('./class'),
-    require('./super'),
-    require('./generators'),
-    require('./typed-array'),
-    require('./map-and-set'),
-    require('./weak-map-and-set'),
-    require('./proxies'),
-    require('./reflect'),
-    require('./symbol'),
-    require('./symbols-well-known'),
-    require('./symbol-has-instance'),
-    require('./symbol-species'),
-]
+let features = require('fs')
+    .readdirSync(__dirname)
+    .filter(f => f != 'index.js')
+    .map(f => require('./' + f))
 
 for (feature of features) {
     for (key in feature.visitors) {
