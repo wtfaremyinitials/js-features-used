@@ -18,7 +18,7 @@ function featuresUsed(code) {
             let visitorResults = nodeVisitors
                 .map(fn => fn(path.node))
                 .filter(truthy)
-            features = features.concat(visitorResults)
+            features = features.concat(visitorResults).filter(unique)
         },
     })
 
@@ -48,6 +48,10 @@ function parse(code) {
 
 function truthy(val) {
     return !!val
+}
+
+function unique(val, index, that) {
+    return that.indexOf(val) == index
 }
 
 module.exports = { featuresUsed, engineNeeded }
