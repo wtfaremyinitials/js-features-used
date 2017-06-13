@@ -1,6 +1,6 @@
 const feature = {
     name: 'new.target',
-    requiredVersion: { major: 5, minor: 12, patch: 0 },
+    requiredVersion: '5.12.0',
 }
 
 module.exports = {

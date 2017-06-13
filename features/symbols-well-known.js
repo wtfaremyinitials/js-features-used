@@ -1,6 +1,6 @@
 const feature = {
     name: 'well known symbols',
-    requiredVersion: { major: 6, minor: 4, patch: 0 },
+    requiredVersion: '6.4.0',
 }
 
 const symbols = [

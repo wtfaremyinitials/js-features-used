@@ -1,11 +1,12 @@
 const babylon = require('babylon')
 const traverse = require('babel-traverse').default
-const { maxVersion } = require('./lib/version')
+const { highestVersion } = require('./lib/version')
 const { visitors } = require('./features')
 
 function engineNeeded(code) {
     let features = featuresUsed(code)
-    return maxVersion(features.map(f => f.requiredVersion))
+    let versions = features.map(f => f.requiredVersion)
+    return highestVersion(versions)
 }
 
 function featuresUsed(code) {

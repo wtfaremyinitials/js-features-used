@@ -1,6 +1,6 @@
 const feature = {
     name: 'for..of loops',
-    requiredVersion: { major: 0, minor: 12, patch: 18 },
+    requiredVersion: '0.12.18',
 }
 
 module.exports = {

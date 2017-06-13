@@ -1,6 +1,6 @@
 const feature = {
     name: 'Symbol.hasInstance',
-    requiredVersion: { major: 6, minor: 11, patch: 0 },
+    requiredVersion: '6.11.0',
 }
 
 module.exports = {

@@ -1,6 +1,6 @@
 const feature = {
     name: 'async functions',
-    requiredVersion: { major: 7, minor: 10, patch: 0 },
+    requiredVersion: '7.10.0',
 }
 
 module.exports = {

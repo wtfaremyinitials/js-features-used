@@ -1,6 +1,6 @@
 const feature = {
     name: 'regex y and u flags',
-    requiredVersion: { major: 6, minor: 4, patch: 0 },
+    requiredVersion: '6.4.0',
 }
 
 const checkExpression = node => {

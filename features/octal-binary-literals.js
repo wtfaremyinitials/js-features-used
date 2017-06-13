@@ -1,6 +1,6 @@
 const feature = {
     name: 'octal and binary literals',
-    requiredVersion: { major: 4, minor: 8, patch: 3 },
+    requiredVersion: '4.8.3',
 }
 
 module.exports = {

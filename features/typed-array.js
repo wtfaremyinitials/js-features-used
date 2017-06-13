@@ -1,6 +1,6 @@
 const feature = {
     name: 'typed array',
-    requiredVersion: { major: 0, minor: 10, patch: 48 },
+    requiredVersion: '0.10.48',
 }
 
 const constructors = [

@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "babel-traverse": "^6.25.0",
-    "babylon": "^6.17.2"
+    "babylon": "^6.17.2",
+    "semver": "^5.3.0"
   },
   "scripts": {
     "fmt": "prettier --write --single-quote --no-semi --tab-width 4 --trailing-comma es5 '**/*.js'",
