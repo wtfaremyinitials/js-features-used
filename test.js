@@ -1,5 +1,5 @@
 const test = require('ava')
-const { featuresUsed } = require('.')
+const featuresUsed = require('.')
 
 test('async functions', t => {
     var feat = require('./features/async-functions').feature

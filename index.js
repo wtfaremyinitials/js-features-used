@@ -1,13 +1,6 @@
 const babylon = require('babylon')
 const traverse = require('babel-traverse').default
-const { highestVersion } = require('./lib/version')
 const { visitors } = require('./features')
-
-function engineNeeded(code) {
-    let features = featuresUsed(code)
-    let versions = features.map(f => f.requiredVersion)
-    return highestVersion(versions)
-}
 
 function featuresUsed(code) {
     let features = []
@@ -55,4 +48,4 @@ function unique(val, index, that) {
     return that.indexOf(val) == index
 }
 
-module.exports = { featuresUsed, engineNeeded }
+module.exports = featuresUsed
