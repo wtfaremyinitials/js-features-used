@@ -1,7 +1,7 @@
 {
-  "name": "engine-needed",
+  "name": "js-features-used",
   "version": "0.0.0",
-  "description": "Auto-detect the node engine needed",
+  "description": "Detect the JavaScript language features used in code",
   "main": "index.js",
   "repository": "https://github.com/wtfaremyinitials/engine-needed.git",
   "author": "Will Franzen",
