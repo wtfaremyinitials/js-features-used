@@ -1,6 +1,6 @@
 {
   "name": "js-features-used",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Detect the JavaScript language features used in code",
   "main": "index.js",
   "repository": "https://github.com/wtfaremyinitials/js-features-used.git",
